@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/client")
 public class UserController {
 
-    @GetMapping("/dashboard")
+    @GetMapping("/home")
     public String dashboard() {
         return "Bienvenido USER";
     }

@@ -1,0 +1,192 @@
+{
+  "info": {
+    "_postman_id": "a1e2b3c4-d5e6-7f8a-9b0c-1d2e3f4a5b6c",
+    "name": "Coello Lab07 API",
+    "schema": "https://schema.getpostman.com/schema/collection/v2.1.0.json",
+    "description": "Postman collection for Coello Lab07 - Spring Security Laboratory",
+    "author": {
+      "name": "yo-sud",
+      "id": "0"
+    }
+  },
+  "item": [
+    {
+      "name": "Free Endpoints (no auth required)",
+      "item": [
+        {
+          "name": "GET /api/free - No auth required",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/free",
+              "host": ["api"],
+              "path": ["free"]
+            }
+          },
+          "response": [
+            {
+              "status": "OK",
+              "code": 200,
+              "name": "Success",
+              "statusline": "HTTP/1.1 200 OK",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain;charset=UTF-8"
+                }
+              ],
+              "body": "Endpoint público funcionando"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Client Endpoints (authenticated USER or higher role)",
+      "item": [
+        {
+          "name": "GET /client/home - USER, ADMIN, MANAGER",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/client/home",
+              "host": ["client"],
+              "path": ["home"]
+            }
+          },
+          "response": [
+            {
+              "status": "OK",
+              "code": 200,
+              "name": "Success",
+              "statusline": "HTTP/1.1 200 OK",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain;charset=UTF-8"
+                }
+              ],
+              "body": "Bienvenido CLIENTE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Management Endpoints (admin role only)",
+      "item": [
+        {
+          "name": "GET /management/dashboard - ADMIN only",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/management/dashboard",
+              "host": ["management"],
+              "path": ["dashboard"]
+            }
+          },
+          "response": [
+            {
+              "status": "OK",
+              "code": 200,
+              "name": "Success",
+              "statusline": "HTTP/1.1 200 OK",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain;charset=UTF-8"
+                }
+              ],
+              "body": "Bienvenido ADMIN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Manager Endpoints (manager role only)",
+      "item": [
+        {
+          "name": "GET /manager/reportes - MANAGER only",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{managerToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/manager/reportes",
+              "host": ["manager"],
+              "path": ["reportes"]
+            }
+          },
+          "response": [
+            {
+              "status": "OK",
+              "code": 200,
+              "name": "Success",
+              "statusline": "HTTP/1.1 200 OK",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain;charset=UTF-8"
+                }
+              ],
+              "body": "Bienvenido MANAGER"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "adminToken",
+      "value": ""
+    },
+    {
+      "key": "managerToken",
+      "value": ""
+    },
+    {
+      "key": "userToken",
+      "value": ""
+    }
+  ]
+}
